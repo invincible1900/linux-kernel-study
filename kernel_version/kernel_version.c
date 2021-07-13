@@ -29,6 +29,7 @@ module_init(pkv_init);
 module_exit(pkv_exit);
 
 MODULE_LICENSE("GPL");
-MODULE_AUTHOR("XDT");
+MODULE_AUTHOR("X++D");
 MODULE_DESCRIPTION("Kernel xxx Module.");
 MODULE_VERSION("0.1");
+
