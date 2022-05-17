@@ -43,16 +43,18 @@ static int __init dram_init( void )
 {
 	printk( "<1>\nInstalling \'%s\' module ", modname );
 	printk( "(major=%d)\n", my_major );
-	
+    pr_info("cpu: %d\n", get_cpu());	
 	// dram_size = (loff_t)num_physpages << PAGE_SHIFT;
 	dram_size = get_num_physpages() << PAGE_SHIFT;
 	printk( "<1>  ramtop=%08llX (%llu MB)\n", dram_size, dram_size >> 20 );
+
 	return 	register_chrdev( my_major, modname, &my_fops );
 }
 
 static void __exit dram_exit( void )
 {
 	unregister_chrdev( my_major, modname );
+    put_cpu();
 	printk( "<1>Removing \'%s\' module\n", modname );
 }
 
