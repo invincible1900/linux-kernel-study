@@ -1,4 +1,4 @@
-obj-m += gnl.o
+obj-m += rw_ufile.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
 all:

@@ -1,4 +1,4 @@
-obj-m += gnl.o
+obj-m += bug_on.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
 all:

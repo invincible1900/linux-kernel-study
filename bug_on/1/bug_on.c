@@ -3,8 +3,8 @@
 
 
 static void bug_on_t(void){
-	/*BUG_ON(1);*/
-	WARN_ON(1);
+	BUG_ON(1);
+	// WARN_ON(1);
 	pr_info("[D] %s-%d\n", __func__, __LINE__);
 }
 
