@@ -10,7 +10,8 @@ CC=${CROSS_COMPILE}gcc
 
 .PHONY:all
 all: main.c 
-	$(CC) -Wextra -Wall -Werror -Wno-unused-parameter main.c $(NL_LIB_FLAGS) $(NL_LIBS_L) $(NL_LIBS_l) -o gnl -g
+	$(CC) -Wextra -Wall -Werror -Wno-unused-parameter main.c $(NL_LIB_FLAGS) $(NL_LIBS_L) $(NL_LIBS_l) -o genl -g
 
-
+clean:
+	rm genl
 

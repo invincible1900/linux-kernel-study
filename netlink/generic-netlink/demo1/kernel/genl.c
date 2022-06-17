@@ -100,8 +100,8 @@ static int mgnl_test_handler(struct sk_buff *skb, struct genl_info *info){
 	nlh = genlmsg_data(genlhdr);
 	msg = nla_data(nlh);
 	
-        pr_info("[+] %u(%u) says %s \n", 
-		info->snd_portid, current->tgid, msg);
+        pr_info("[+] %s (%u, %u) says %s \n", current->comm,
+    		info->snd_portid, current->tgid, msg);
 
 
         return 0;

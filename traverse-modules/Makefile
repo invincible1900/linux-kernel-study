@@ -1,4 +1,4 @@
-obj-m += genl.o
+obj-m += tm.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
 all:

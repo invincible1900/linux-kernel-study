@@ -1,4 +1,4 @@
-obj-m += genl.o
+obj-m += module_alloc.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
 all:
