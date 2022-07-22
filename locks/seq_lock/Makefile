@@ -1,9 +1,8 @@
-obj-m += tc.o
+obj-m += seq_lock.o
 KDIR := /lib/modules/$(shell uname -r)/build
 
 all:
 	make -C $(KDIR) M=$(PWD) modules
-	gcc simple_char_test.c -o simple_char_test
 
 clean:
 	@rm -rf *.o *.mod.c *.mod.o *.order *.symvers .*.cmd *.mod .tmp_versions

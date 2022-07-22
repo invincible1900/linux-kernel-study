@@ -43,7 +43,7 @@ writeDevice(){
 getInput(){
 
 	char inputBuffer[BUFFER_SIZE];
-
+#if 0
 	printf("\nPlease enter a command (o,r,w,e): ");
 	if (fgets(inputBuffer, BUFFER_SIZE, stdin) != NULL){
 		if (inputBuffer[0] == OPEN){
@@ -62,6 +62,9 @@ getInput(){
 			getInput();
 		}
 	}
+#else
+    readDevice();
+#endif
 }
 
 main(){
