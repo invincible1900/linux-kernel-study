@@ -1,7 +1,7 @@
 #!/bin/bash
 
 make
-insmod p2v.ko
-rmmod p2v
+insmod slab-tc.ko
+rmmod slab-tc
 dmesg 
 make clean_all

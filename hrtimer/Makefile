@@ -1,5 +1,6 @@
-obj-m += p2v.o
-KDIR := /lib/modules/$(shell uname -r)/build
+obj-m += tc.o
+#KDIR := /lib/modules/$(shell uname -r)/build
+KDIR := /laptop/git-home/linux-5.10.90
 
 all:
 	make -C $(KDIR) M=$(PWD) modules

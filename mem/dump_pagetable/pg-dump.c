@@ -3,6 +3,7 @@
 #include <linux/kprobes.h>
 #include <linux/version.h>
 
+char *sym = "dump_pagetable";
 
 #if LINUX_VERSION_CODE < KERNEL_VERSION(5,7,0)
 int init_kallsyms(void) {
@@ -40,14 +41,15 @@ int init_kallsyms(void)
 static void (*dump_pagetable)(unsigned long address);
 
 
-long run(void *arg){
-    char *sym = "dump_pagetable";
+long run(void){
 
     dump_pagetable = (void *)kallsyms_lookup_name(sym);
     pr_info("%px, %px\n", __va(read_cr3_pa()), read_cr3_pa());
-    pr_info("%px\n", *(long *)(__va(0x4822000e1)));
+    //pr_info("%px\n", *(long *)(__va(0x4822000e1)));
     pr_info("dump_pagetable: %px\n", dump_pagetable);
-
+    dump_pagetable((unsigned long)dump_pagetable);
+    
+    pr_info("sym: %px\n", sym);
     dump_pagetable((unsigned long)sym);
 
     return 0;
@@ -56,8 +58,7 @@ long run(void *arg){
 
 static int __init km_init(void){
     init_kallsyms();
-    work_on_cpu(1, run, NULL);
-
+    run();
     return 0;
 }
 
